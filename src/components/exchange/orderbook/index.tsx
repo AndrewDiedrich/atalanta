@@ -8,17 +8,16 @@ import {
   Code,
   Intent,
   Colors,
+  Classes,
+  Tag,
 } from '@blueprintjs/core';
+import { TAG } from '@blueprintjs/core/lib/esm/common/classes';
 
 const Orderbook = () => {
   const [rows, setRows] = useState<Array<any>>([]);
   const socket = useSocket('ws://localhost:8060');
 
   useEffect(() => {
-    function handleEvent(payload: any) {
-      setRows(payload);
-      // HelloWorld
-    }
     if (socket) {
       socket.on('connect', (payload: any) => {
         socket.on('level1', (payload: any) => {
@@ -28,6 +27,19 @@ const Orderbook = () => {
       });
     }
   }, [socket]);
+
+  const rowSkeleton = () => {
+    return (
+      <>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+        <p className={Classes.SKELETON}>date: price row valkjlskdjflskdf</p>
+      </>
+    );
+  };
 
   const renderAskRows = () => {
     return rows[0].rows.map((row: any) => {
@@ -52,11 +64,13 @@ const Orderbook = () => {
   };
   return (
     <Card>
+      <Tag intent={Intent.DANGER}>Ask</Tag>
       <Collapse isOpen={true} keepChildrenMounted={true}>
-        <Pre>{rows.length > 0 ? renderAskRows() : <Spinner />}</Pre>
+        <Pre>{rows.length > 0 ? renderAskRows() : rowSkeleton()}</Pre>
       </Collapse>
+      <Tag intent={Intent.SUCCESS}>Bid</Tag>
       <Collapse isOpen={true} keepChildrenMounted={true}>
-        <Pre>{rows.length > 0 ? renderBidRows() : <Spinner />}</Pre>
+        <Pre>{rows.length > 0 ? renderBidRows() : rowSkeleton()}</Pre>
       </Collapse>
     </Card>
   );
