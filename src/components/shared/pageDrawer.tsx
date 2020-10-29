@@ -9,7 +9,7 @@ import {
   Colors,
   Intent,
 } from '@blueprintjs/core';
-// import { TreeExample } from './treeExample';
+import { TreeExample } from './treeExample';
 
 const PageDrawer = ({ filenames }: any) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -27,7 +27,7 @@ const PageDrawer = ({ filenames }: any) => {
           title="Chintai"
           onClose={() => handleClose()}
         >
-          {/* <TreeExample filenames={filenames} /> */}
+          <TreeExample id="menu" />
         </Drawer>
       ) : (
         <Button

@@ -4,7 +4,6 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import fs from 'fs';
 import path from 'path';
-import Header from '@components/shared/header';
 import { useState } from 'react';
 import { Card, FormGroup, InputGroup } from '@blueprintjs/core';
 
@@ -74,8 +73,7 @@ const AppComponent = ({ Component, pageProps, filenames }: any): any => {
         </Card>
       ) : (
         <>
-          <Header filenames={filenames} />
-          <div style={{ marginTop: '20px' }}>
+          <div>
             <Component {...pageProps} />
           </div>
         </>

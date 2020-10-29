@@ -5,7 +5,7 @@
 // import ATL from '../__atl__/src/core/';
 import { Card, Elevation, Drawer } from '@blueprintjs/core';
 import { FlexBanner } from 'src/lib/globalStyles';
-import HomeOptions from 'src/components/pages/home';
+import Home from '@components/pages/home';
 export interface ITradeHistory {
   quantity: number;
   price: number;
@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <>
       {/* <FlexBanner /> */}
-      <HomeOptions />
+      <Home />
     </>
   );
 };
