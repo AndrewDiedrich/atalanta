@@ -10,7 +10,7 @@ const ChartAnimation = () => {
       let box = document.getElementById('chart-div');
       const newDiv = document.createElement('div');
       newDiv.id = `el-${i}`;
-      newDiv.style.cssText = 'width: 8px; height: 3px';
+      newDiv.style.cssText = 'width: 5px; height: 3px';
       box?.appendChild(newDiv);
       if (easingNames[i].value <= easingNames[i - 1].value) {
         newDiv!.style.backgroundColor = '#04bb2c';
@@ -111,6 +111,54 @@ const ChartAnimation = () => {
     {
       easing: 'easeInOutQuart',
       value: 8,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: 6,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: 3,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: 2,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: 1,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -2,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -3,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -4,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -5,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -3,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -2,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: -1,
+    },
+    {
+      easing: 'easeInOutQuart',
+      value: 3,
     },
   ];
 

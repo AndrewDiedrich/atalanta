@@ -11,12 +11,14 @@ import {
 } from '@blueprintjs/core';
 import Orderbook from 'src/components/exchange/orderbook';
 import ChartAnimtion from 'src/components/shared/animations/chartAnimation';
+import LogoAnimation from 'src/components/shared/animations/logoAnimation';
 import { FlexRow, FlexColumn } from 'src/lib/globalStyles';
 const Dashboard = () => {
   return (
     <FlexColumn style={{ alignItems: 'center' }}>
       <Orderbook />
       <ChartAnimtion />
+      {/* <LogoAnimation /> */}
     </FlexColumn>
   );
 };
