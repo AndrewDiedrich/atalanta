@@ -12,6 +12,8 @@ import {
   Tag,
 } from '@blueprintjs/core';
 import { FlexRow } from 'src/lib/globalStyles';
+import UnitBar from 'src/components/shared/animations/values/specificUnit';
+import { ROUND } from '@blueprintjs/core/lib/esm/common/classes';
 
 const Orderbook = () => {
   const [rows, setRows] = useState<any>([]);
@@ -42,22 +44,31 @@ const Orderbook = () => {
   };
 
   const renderAskRows = () => {
-    return rows.asks.rows.map((row: any) => {
+    return rows.asks.rows.map((row: any, index: number) => {
       return (
         <>
-          <Code>{`${row.date} ${row.price}: ${row.value}`}</Code>
-          <br />
+          <UnitBar
+            index={index}
+            row={row}
+            widthPercent={Math.round(row.price * 100)}
+            color={'#e73a23ff'}
+          />
         </>
       );
     });
   };
 
   const renderBidRows = () => {
-    return rows.bids.rows.map((row: any) => {
+    return rows.bids.rows.map((row: any, index: number) => {
+      console.log(row.price * 100, Math.round(row.price * 100));
       return (
         <>
-          <Code>{`${row.date} ${row.price}: ${row.value}`}</Code>
-          <br />
+          <UnitBar
+            index={index}
+            row={row}
+            widthPercent={Math.round(row.price * 100)}
+            color={'#7fc431ff'}
+          />
         </>
       );
     });

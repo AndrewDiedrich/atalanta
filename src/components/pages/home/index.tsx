@@ -10,8 +10,8 @@ import {
   Icon,
   Divider,
 } from '@blueprintjs/core';
-import Orderbook from 'src/components/exchange/orderbook';
 import { FlexRow, FlexColumn } from 'src/lib/globalStyles';
+
 import Link from 'next/link';
 const Home = () => {
   return (
