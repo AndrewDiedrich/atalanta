@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSocket } from 'src/hooks/use-socket';
 import {
-  Spinner,
+  Icon,
   Card,
   Pre,
   Collapse,
@@ -12,8 +12,7 @@ import {
   Tag,
 } from '@blueprintjs/core';
 import { FlexRow } from 'src/lib/globalStyles';
-import UnitBar from 'src/components/shared/animations/values/specificUnit';
-import { ROUND } from '@blueprintjs/core/lib/esm/common/classes';
+import BookRows from './bookRows';
 
 const Orderbook = () => {
   const [rows, setRows] = useState<any>([]);
@@ -47,10 +46,11 @@ const Orderbook = () => {
     return rows.asks.rows.map((row: any, index: number) => {
       return (
         <>
-          <UnitBar
+          <BookRows
             index={index}
             row={row}
-            widthPercent={Math.round(row.price * 100)}
+            side={'asks'}
+            widthPercent={Math.round((row.size / rows.totalAskSize) * 100)}
             color={'#e73a23ff'}
           />
         </>
@@ -63,10 +63,11 @@ const Orderbook = () => {
       console.log(row.price * 100, Math.round(row.price * 100));
       return (
         <>
-          <UnitBar
+          <BookRows
             index={index}
             row={row}
-            widthPercent={Math.round(row.price * 100)}
+            side={'bids'}
+            widthPercent={Math.round((row.size / rows.totalBidSize) * 100)}
             color={'#7fc431ff'}
           />
         </>
@@ -85,7 +86,10 @@ const Orderbook = () => {
       </Collapse>
       <FlexRow>
         <Code>
-          Spread {rows.spread ? rows.spread.pct : 0}%{' '}
+          <Icon
+            icon={rows.spread.side === 'asks' ? 'chevron-down' : 'chevron-up'}
+          />
+          Spread {rows.spread ? rows.spread.pct.toPrecision(2) : 0}%{' '}
           {rows.spread ? rows.spread.diff : 0} last{' '}
           {rows.spread ? rows.spread.last : 0}
         </Code>

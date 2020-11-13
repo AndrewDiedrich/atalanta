@@ -1,0 +1,49 @@
+.blinkPositiveValue {
+  animation: blinkPositiveValue 0.8s;
+}
+
+.blinkNegativeValue {
+  animation: blinkNegativeValue 0.8s;
+}
+
+@keyframes blinkPositiveValue {
+  0% {
+    background-color: rgba(127, 196, 49, 0.1);
+  }
+  49% {
+    background-color: rgba(127, 196, 49, 0.3);
+  }
+  60% {
+    background-color: rgba(127, 196, 49, 0.6);
+  }
+  80% {
+    background-color: rgba(127, 196, 49, 0.4);
+  }
+  99% {
+    background-color: rgba(127, 196, 49, 0.3);
+  }
+  100% {
+    background-color: rgba(127, 196, 49, 0.1);
+  }
+}
+
+@keyframes blinkNegativeValue {
+  0% {
+    background-color: rgba(231, 58, 35, 0.1);
+  }
+  49% {
+    background-color: rgba(231, 58, 35, 0.3);
+  }
+  60% {
+    background-color: rgba(231, 58, 35, 0.6);
+  }
+  80% {
+    background-color: rgba(231, 58, 35, 0.4);
+  }
+  99% {
+    background-color: rgba(231, 58, 35, 0.3);
+  }
+  100% {
+    background-color: rgba(231, 58, 35, 0.1);
+  }
+}

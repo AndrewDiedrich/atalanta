@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Callout, Intent } from '@blueprintjs/core';
 import io from 'socket.io-client';
 
 interface IRequestTypes {

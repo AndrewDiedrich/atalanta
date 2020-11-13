@@ -2,24 +2,26 @@ import { useRef, useEffect } from 'react';
 import anime from 'animejs';
 import style from './chart.module.css';
 import { Code } from '@blueprintjs/core';
+import styles from './orderbook.module.css';
 
-const UnitBar = (props: {
+const BookRows = (props: {
   index: number;
   row: any;
+  side: string;
   widthPercent: number;
   color: string;
 }) => {
-  useEffect(() => {
-    console.log('width', props.widthPercent);
-    anime({
-      targets: `.specific-unit-values-demo-${props.index}  .el-${props.index}`,
-      width: `${props.widthPercent}%`, // -> from '28px' to '100%',
-      easing: 'easeInOutQuad',
-      direction: '',
-      loop: false,
-    }),
-      [];
-  });
+  //   useEffect(() => {
+  //     console.log('width', props.widthPercent);
+  //     anime({
+  //       targets: `.specific-unit-values-demo-${props.index}  .el-${props.index}`,
+  //       width: `${props.widthPercent}%`, // -> from '28px' to '100%',
+  //       easing: 'easeInOutQuad',
+  //       direction: '',
+  //       loop: false,
+  //     }),
+  //       [];
+  //   });
 
   return (
     // <div>
@@ -27,7 +29,12 @@ const UnitBar = (props: {
 
     <>
       <Code
-        className={'blink-negative-value'}
+        key={`${props.row.size}`}
+        className={
+          props.side === 'bids'
+            ? styles.blinkPositiveValue
+            : styles.blinkNegativeValue
+        }
         style={{
           background: `linear-gradient(90deg, ${props.color} ${
             props.widthPercent
@@ -56,4 +63,4 @@ const UnitBar = (props: {
   );
 };
 
-export default UnitBar;
+export default BookRows;
