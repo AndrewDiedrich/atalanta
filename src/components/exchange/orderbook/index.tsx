@@ -87,7 +87,11 @@ const Orderbook = () => {
       <FlexRow>
         <Code>
           <Icon
-            icon={rows.spread.side === 'asks' ? 'chevron-down' : 'chevron-up'}
+            icon={
+              rows.spread && rows.spread.side === 'asks'
+                ? 'chevron-down'
+                : 'chevron-up'
+            }
           />
           Spread {rows.spread ? rows.spread.pct.toPrecision(2) : 0}%{' '}
           {rows.spread ? rows.spread.diff : 0} last{' '}
