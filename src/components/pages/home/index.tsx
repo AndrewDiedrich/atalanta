@@ -11,8 +11,8 @@ import {
   Divider,
 } from '@blueprintjs/core';
 import { FlexRow, FlexColumn } from 'src/lib/globalStyles';
-
 import Link from 'next/link';
+
 const Home = () => {
   return (
     <FlexColumn
